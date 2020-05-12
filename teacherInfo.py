@@ -6,7 +6,7 @@ import json
 import urllib
 import urllib3
 
-openId = "oWRkU0Wgyn2m3n-qb0_lFhgzs6mg"
+openId = ""
 
 # headers = {
 #     "Host": "a.welife001.com",
