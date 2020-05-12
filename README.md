@@ -10,4 +10,4 @@
 ## 班级小管家api（部分）
 | URL | 说明 |
 | - | - | 
-| http://img.welife001.com/ | 图片 |
+| http://img.welife001.com/ | 高清大图 |
