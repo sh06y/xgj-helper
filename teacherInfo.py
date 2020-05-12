@@ -6,22 +6,8 @@ import json
 import urllib
 import urllib3
 
+# 教师 openID
 openId = ""
-
-# headers = {
-#     "Host": "a.welife001.com",
-#     "Connection": "keep-alive",
-#     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
-#     "content-type": "application/json",
-#     "imprint": openId,
-#     "Accept-Encoding": "gzip, deflate, br"
-    
-# }
-
-# r = requests.get("https://a.welife001.com/getUser",headers=headers)
-
-# print(r.text)
-
 
 headers = {
     "Host": "a.welife001.com",
