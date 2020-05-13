@@ -9,6 +9,18 @@
 | teacherInfo.py | 获取教师信息 |
 | daka.py | 还没完工的自动打卡 |
 
+## 安装
+
+```bash
+git clone https://github.com/sh06y/class.git
+```
+
+### 安装依赖库
+
+```bash
+pip install -r requirements.txt
+```
+
 ## 使用方法
 
 ### 获取他人作业（方法不唯一）
