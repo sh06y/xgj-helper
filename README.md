@@ -13,7 +13,7 @@
 
 ### 获取他人作业（方法不唯一）
 
-1. 小程序抓包，找到 **getParentInfo**（应该是），在response里找到项目创建者的openID（creator_wx_openid=xxx），复制
+1. 小程序抓包，找到 `getParentInfo`（应该是），在response里找到项目创建者的openID（creator_wx_openid），复制
 
 2. 打开`teacherInfo.py`，在变量`openId`中粘贴刚才复制的教师openId，运行
 
