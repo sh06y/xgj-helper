@@ -5,8 +5,9 @@
 import time
 import json
 import requests
+from requests.packages import urllib3
 
-openId = ""
+openId = "oWRkU0XpatFnNVvmqDqnYQmmKERk"
 
 """
 对应关系
@@ -38,5 +39,7 @@ headers = {
     "Referer": "https://servicewechat.com/wx23d8d7ea22039466/378/page-frame.html",
     "Accept-Encoding": "gzip, deflate, br"
 }
-r = requests.post("https://a.welife001.com/notify/check4teacher",headers=headers,data=post)
+
+urllib3.disable_warnings()
+r = requests.post("https://a.welife001.com/notify/check4teacher",headers=headers,data=post,verify=False)
 print(r.text)

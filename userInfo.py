@@ -1,4 +1,5 @@
 import requests
+from requests.packages import urllib3
 
 openId = ""
 
@@ -13,6 +14,7 @@ headers = {
     
 }
 
-r = requests.get("https://a.welife001.com/getUser",headers=headers)
+urllib3.disable_warnings()
+r = requests.get("https://a.welife001.com/getUser",headers=headers,verify=False)
 
 print(r.text)

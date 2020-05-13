@@ -3,6 +3,7 @@
 import requests
 import time
 import json
+from requests.packages import urllib3
 
 # 教师 openID
 openId = ""
@@ -16,7 +17,8 @@ headers = {
     "Accept-Encoding": "gzip, deflate, br"
 }
 
-r = requests.get("https://a.welife001.com/info/getTeacherInfo?openid="+openId+"&type=-1&onlyMe=false&page=0&time=-1&lookAll=true&cls=-1&size=10&teacher_cate=teach_class_list&role_detail_id=undefined&nv=1",headers=headers)
+urllib3.disable_warnings()
+r = requests.get("https://a.welife001.com/info/getTeacherInfo?openid="+openId+"&type=-1&onlyMe=false&page=0&time=-1&lookAll=true&cls=-1&size=10&teacher_cate=teach_class_list&role_detail_id=undefined&nv=1",headers=headers,verify=False)
 
 print(r.text)
 
