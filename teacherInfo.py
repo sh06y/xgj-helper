@@ -3,8 +3,6 @@
 import requests
 import time
 import json
-import urllib
-import urllib3
 
 # 教师 openID
 openId = ""
