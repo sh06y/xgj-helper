@@ -1,4 +1,4 @@
-# 班级小管家
+# 班级小管家辅助系统
 
 原文在这里：[https://mp.weixin.qq.com/s/x3gExnAU6Cylrlkurjs-9Q](https://mp.weixin.qq.com/s/x3gExnAU6Cylrlkurjs-9Q)
 
