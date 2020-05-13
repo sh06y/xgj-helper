@@ -9,6 +9,20 @@
 | teacherInfo.py | 获取教师信息 |
 | daka.py | 还没完工的自动打卡 |
 
+## 使用方法
+
+### 获取他人作业（方法不唯一）
+
+1. 小程序抓包，找到 **getParentInfo**（应该是），在response里找到项目创建者的openID（creator_wx_openid=xxx），复制
+
+2. 打开`teacherInfo.py`，在变量`openId`中粘贴刚才复制的教师openId，运行
+
+3. 在返回的 json 中找到项目，复制 `cls` 和 `notify` 下的 `_id`
+
+4. 打开`teacherDetail.py`，按照注释在变量中分别粘贴刚才复制的内容
+
+5. 运行，在返回的 json 中即可找到作业内容
+
 ## 班级小管家api（部分）
 
 | URL | 说明 |
