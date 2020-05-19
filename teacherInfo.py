@@ -6,7 +6,7 @@ import json
 from requests.packages import urllib3
 
 # 教师 openID
-openId = ""
+openId = "oWRkU0YIgbfbnKwNIWqCN3tJ571A"
 
 def getTeacherInfo(openId):
     headers = {
@@ -20,7 +20,7 @@ def getTeacherInfo(openId):
 
     # f = open('data.txt','a+',encoding='utf-8')
     page = 0
-    datas = ""
+    datas = []
     while True:
         urllib3.disable_warnings()
         r = requests.get("https://a.welife001.com/info/getTeacherInfo?openid="+openId+"&type=-1&onlyMe=false&page="+str(page)+"&time=-1&lookAll=true&cls=-1&size=10&teacher_cate=teach_class_list&role_detail_id=undefined&nv=1",headers=headers,verify=False)
@@ -29,7 +29,7 @@ def getTeacherInfo(openId):
         if len(data['result']) == 0:
             break
         # f.write(str(data))
-        datas = datas + str(data)
+        datas.append(data)
         page = page + 1
 
     # f.close()
