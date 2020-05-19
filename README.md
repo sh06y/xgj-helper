@@ -8,7 +8,7 @@
 | teacherDetail.py | 以教师身份获取课程信息 |
 | teacherInfo.py | 获取教师信息 |
 | daka.py | 还没完工的自动打卡 |
-| main.py | 自动脚本 |
+| main.py | 全自动脚本 |
 
 ## 安装
 
@@ -24,7 +24,11 @@ pip install -r requirements.txt
 
 ## 使用方法
 
-### 获取他人作业（方法不唯一）
+### 自动获取他人作业
+
+运行`main.py`
+
+### 手动获取他人作业（方法不唯一）
 
 1. 小程序抓包，找到 `getParentInfo`（应该是），在response里找到项目创建者的openID（creator_wx_openid），复制
 
