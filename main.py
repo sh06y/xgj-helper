@@ -3,17 +3,16 @@ from teacherDetail import getTeacherDetail
 from teacherInfo import getTeacherInfo
 from userInfo import getUserInfo
 import json
-import demjson
 
-# openId = input("请输入教师openId（任意一个）:")
-openId = "oWRkU0YIgbfbnKwNIWqCN3tJ571A"
+openId = input("请输入教师openId（任意一个）:")
+# openId = ""
 print('''
 1.获取作业内容
 2.
 ''')
 
-# n = input("你想做什么：")
-n = "1"
+n = input("你想做什么：")
+# n = "1"
 
 if n == "1":
     teacherInfo = getTeacherInfo(openId)
