@@ -8,6 +8,7 @@
 | teacherDetail.py | 以教师身份获取课程信息 |
 | teacherInfo.py | 获取教师信息 |
 | daka.py | 还没完工的自动打卡 |
+| examScore.py | 考试成绩查询 |
 | **main.py** | **全自动作业获取脚本** |
 
 ## 安装
