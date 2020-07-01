@@ -1,16 +1,20 @@
 # -*- coding:UTF-8-*-
 from teacherDetail import getTeacherDetail
 from teacherInfo import getTeacherInfo
+from examScore import getScores
 from userInfo import getUserInfo
 import sys
 import json
 import os
 import requests
+from prettytable import PrettyTable
+from operator import itemgetter, attrgetter
 
 # openId = input("请输入教师openId（任意一个）:")
 # openId = ""
 print('''
 1: 获取作业内容
+2: 获取成绩
 ''')
 
 n = input("您想做什么: ")
@@ -52,12 +56,12 @@ if n == "1":
     print("是否使用教师姓名检索 1:是 2:否\n")
     teacherInfoGetType = int(input("输入您的选择: "))
     openId = ""
-    if (teacherInfoGetType == 1):
+    if teacherInfoGetType == 1:
         openId = getTeacherOpenIdByTeacherName()
-        if (openId == "__exit"):
+        if openId == "__exit":
             os.system("clear")
             sys.exit()
-    elif (teacherInfoGetType == 2):
+    elif teacherInfoGetType == 2:
         openId = getTeacherOpenIdByOpenId()
     teacherInfo = getTeacherInfo(openId)
 
@@ -87,7 +91,7 @@ if n == "1":
 
     while True:
         choose = int(input("请选择作业项目: (若要停止请输入666)"))
-        if (choose == 666):
+        if choose == 666:
             os.system("clear")
             break
         tid = tidList[choose]
@@ -152,3 +156,63 @@ if n == "1":
                     photoUrl = url + photo
                     print(photoUrl)
                 print("-----------------------------------------------\n")
+elif n == "2":
+    print("是否使用教师姓名检索 1:是 2:否\n")
+    teacherInfoGetType = int(input("输入您的选择: "))
+    openId = ""
+    if teacherInfoGetType == 1:
+        openId = getTeacherOpenIdByTeacherName()
+        if openId == "__exit":
+            os.system("clear")
+            sys.exit()
+    elif teacherInfoGetType == 2:
+        openId = getTeacherOpenIdByOpenId()
+    teacherInfo = getTeacherInfo(openId)
+
+    i = 0
+    projectList = {}
+    tidList = []
+    cidList = []
+    for eachPage in teacherInfo:
+        for project in eachPage["result"]:
+            # 如果不是作业则跳过
+            if project["type"] != 0:
+                continue
+
+            # print(project["type"])
+            projectList[i] = project["notify"][0]["title"] + \
+                             "\n" + project["notify"][0]["text_content"]
+            tidList.append(project["notify"][0]["_id"])
+            cidList.append(project["cls"])
+
+            i = i + 1
+
+    print("项目列表: ")
+    print("-----------------------------------------------")
+    for key, value in projectList.items():
+        print('{key}.{value}'.format(key=key, value=value))
+        print("-----------------------------------------------")
+
+    while True:
+        choose = int(input("请选择作业项目:"))
+
+        tid = tidList[choose]
+        cid = cidList[choose]
+
+        teacherDetail = getTeacherDetail(openId, tid, cid)
+        # print(teacherDetail)
+        scoreList = getScores(teacherDetail)
+        scoreList.sort(key=lambda x: x['score'], reverse=True)
+
+        # print(scoreList)
+        table = PrettyTable(['排名', '姓名', '答题纸分数', '答题卡分数', '总分'])
+        n = 1
+        for i in scoreList:
+            table.add_row([n, i['name'], i['homeworkScore'], i['answersheetScore'], i['score']])
+            n = n + 1
+
+        print('排名（总分倒序）：')
+        print(table)
+
+else:
+    print('输入错误！')
