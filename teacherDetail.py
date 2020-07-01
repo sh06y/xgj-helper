@@ -16,17 +16,17 @@ cid = cls
 tid = ""
 cid = ""
 
-def getTeacherDetail(openId, tid, cid):
 
+def getTeacherDetail(openId, tid, cid):
     ts = int(round(time.time() * 1000))
 
     post = json.dumps({
-        "_id":tid,
-        "cid":cid,
-        "daka_day":"",
-        "teacher_cate":"teach_class_list",
-        "member_id":"",
-        "cls_ts":ts})
+        "_id": tid,
+        "cid": cid,
+        "daka_day": "",
+        "teacher_cate": "teach_class_list",
+        "member_id": "",
+        "cls_ts": ts})
 
     headers = {
         "Host": "a.welife001.com",
@@ -40,7 +40,8 @@ def getTeacherDetail(openId, tid, cid):
     }
 
     urllib3.disable_warnings()
-    r = requests.post("https://a.welife001.com/notify/check4teacher",headers=headers,data=post,verify=False)
+    r = requests.post("https://a.welife001.com/notify/check4teacher", headers=headers, data=post, verify=False)
+    # print(r.text)
     return r.text
 
 
